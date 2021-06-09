@@ -12,7 +12,7 @@ export default function EmployeeList() {
     }); 
     return (
         <div>
-          <Table celled>
+          <Table color="red" celled>
     <Table.Header>
       <Table.Row>
         <Table.HeaderCell>Id</Table.HeaderCell>

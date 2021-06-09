@@ -4,7 +4,7 @@ export default function Categories() {
     return (
         <div>
         <Menu pointing vertical>
-        <Menu.Item
+        <Menu.Item 
           name='Employer List'
         />
         <Menu.Item
