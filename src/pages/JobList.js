@@ -9,7 +9,7 @@ export default function JobList() {
     useEffect(()=>{
       let jobService = new JobService();
       jobService.getJob().then(result=>setJobs(result.data.data))
-    }); 
+    },[]); 
     return (
         <div>
           <Table color="red"  celled>

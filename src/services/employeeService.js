@@ -4,4 +4,7 @@ export default class EmployeeService{
     getEmployee(){
         return axios.get("http://localhost:8080/api/employees/getall");
     }
+    getEmployeeById(id){
+        return axios.get("http://localhost:8080/api/employees/getById?id="+id);
+    }
 }

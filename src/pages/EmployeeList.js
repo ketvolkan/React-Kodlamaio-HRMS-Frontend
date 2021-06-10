@@ -1,4 +1,5 @@
 import React, { useState,useEffect } from 'react'
+import { Link } from 'react-router-dom';
 import { Icon, Menu, Table } from 'semantic-ui-react'
 import EmployeeService from "../services/employeeService"
 
@@ -9,7 +10,7 @@ export default function EmployeeList() {
     useEffect(()=>{
       let employeeService = new EmployeeService();
       employeeService.getEmployee().then(result=>setEmployees(result.data.data))
-    }); 
+    },[]); 
     return (
         <div>
           <Table color="red" celled>
@@ -30,7 +31,7 @@ export default function EmployeeList() {
         employees.map(employee =>(
       <Table.Row key = {employee.id}>
           <Table.Cell>{employee.id}</Table.Cell>
-          <Table.Cell>{employee.mail}</Table.Cell>
+          <Table.Cell><Link to={`/Employee/${employee.id}`}>{employee.mail}</Link></Table.Cell>
           <Table.Cell>{employee.password}</Table.Cell>
           <Table.Cell>{employee.first_name}</Table.Cell>
           <Table.Cell>{employee.last_name}</Table.Cell>
