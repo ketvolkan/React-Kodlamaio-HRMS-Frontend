@@ -54,7 +54,7 @@ export default function JobAdvertismentAdd() {
             && values.description != ""
             && values.jobPosition.id != ""
             && values.wayOfWorking != ""
-            && values.fullOrHalf != ""
+            && values.fullOrHalf != "" 
             && values.city.id != ""
             && values.deadline != ""
           ) {
