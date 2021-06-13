@@ -1,9 +1,9 @@
 import './App.css';
-import Dashboard from './layouts/Dashboard';
+import Dashboard from './layouts/Dashboard/Dashboard';
 import 'semantic-ui-css/semantic.min.css'
 import { Container } from 'semantic-ui-react';
-import Navi from './layouts/Navi';
-import Footer from './layouts/Footer'
+import Navi from './layouts/Navi/Navi';
+import Footer from './layouts/Footer/Footer'
 
 
 

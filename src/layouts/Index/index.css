@@ -1,0 +1,43 @@
+.up{
+    border-radius: 5px 60px 0px 60px;
+    background-color: white;
+    color:rgb(219 40 40);
+    padding: 10px;
+    padding-bottom: 60px;
+}
+.under{
+    margin-left: 90px;
+}
+.metin{
+    border-radius: 60px 5px 60px 5px;
+    background-color: white;
+    color:rgb(219 40 40);
+    margin-right: 45px;
+    padding: 10px;
+}
+h1{
+    font-size: 50px;
+}
+h2{
+    margin-left: -150px;
+    color:white;
+}
+hr{
+    background-color: white;
+}
+.c{
+    border: 2px solid rgb(219 40 40);
+    background-color: rgb(219 40 40);
+    padding:0px 100px 0px 100px;
+    border-radius: 60px 0 0 0px;
+    margin-top:90px;
+    
+}
+.b{
+    position: fixed;
+}
+::-webkit-scrollbar {
+    display: none;
+    visibility: hidden;
+    opacity: 0
+}

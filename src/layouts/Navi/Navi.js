@@ -1,9 +1,10 @@
 import React,{useState} from 'react'
-import SignedOut from './SignedOut'
+import SignedOut from '../Signed/SignedOut'
 import {Container, Button, Menu,Icon } from 'semantic-ui-react'
 import "./Navi.css"
-import SignedIn from './SignedIn'
+import SignedIn from '../Signed/SignedIn'
 import { useHistory } from 'react-router'
+import { NavLink } from 'react-router-dom'
 
 export default function Navi() {
     
@@ -11,7 +12,7 @@ export default function Navi() {
     const history = useHistory()
     function handleSignOut() {
         setIsAuthenticated(false);
-        history.push("/")
+        history.push("/List")
     }
 
     function handleSignIn() {
@@ -22,13 +23,15 @@ export default function Navi() {
         <div>
             
             <Menu inverted color="red" className="Menu" fixed="top">
-            <Container>
+           
             <Menu.Item>
                 <a href="#" className="logo">KetHRMS</a>
             </Menu.Item>
-                <Menu.Item> <Icon name ="edit outline"/>CV Hazırla</Menu.Item>
-                <Menu.Item><Icon name ="suitcase"/>İş İlanları</Menu.Item>
-
+                <Menu.Item > <Icon name ="edit outline"/>CV Hazırla</Menu.Item>
+                <Menu.Item as={NavLink} to="/JobAdvertisment"><Icon name ="suitcase"/>İş İlanları</Menu.Item>
+                <Menu.Item as={NavLink} to="/List"><Icon name ="list alternate outline"/>Listeler</Menu.Item>
+                <Menu.Item as={NavLink} to="/JobAdvertisment/Add"><Icon name ="pencil alternate"/>İş İlanı Ekle</Menu.Item>
+                <Menu.Item as={NavLink} to="/JobAdvertisment/Submit"><Icon name ="eraser"/>İş İlanı Onayla</Menu.Item>
                 <Menu.Menu position='right'>
                 <Menu.Item/>
                     {isAuthenticated? <SignedIn signOut={handleSignOut}/>:<SignedOut signIn={handleSignIn} className="LoginRegister"/>}
@@ -38,7 +41,7 @@ export default function Navi() {
                     <a className="SocialMedia" href ="https://instagram.com/ketvlkn"><Button circular color='red' icon='instagram' /></a>
                     </Menu.Item>
                 </Menu.Menu>
-                </Container>
+                
             </Menu>
         </div>
     )

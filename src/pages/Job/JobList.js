@@ -1,15 +1,14 @@
 import React, { useState,useEffect } from 'react'
-import { Link } from 'react-router-dom';
 import { Icon, Menu, Table } from 'semantic-ui-react'
-import EmployerService from "../services/employerService"
+import JobService from "../../services/jobService"
 
 
 export default function JobList() {
-    const [employers, setEmployers] = useState([]);
+    const [jobs, setJobs] = useState([]);
     
     useEffect(()=>{
-      let employerService = new EmployerService();
-      employerService.getEmployer().then(result=>setEmployers(result.data.data))
+      let jobService = new JobService();
+      jobService.getJob().then(result=>setJobs(result.data.data))
     },[]); 
     return (
         <div>
@@ -17,24 +16,16 @@ export default function JobList() {
     <Table.Header>
       <Table.Row>
         <Table.HeaderCell>Id</Table.HeaderCell>
-        <Table.HeaderCell>Email</Table.HeaderCell>
-        <Table.HeaderCell>Password</Table.HeaderCell>
-        <Table.HeaderCell>Company Name</Table.HeaderCell>
-        <Table.HeaderCell>Website</Table.HeaderCell>
-        <Table.HeaderCell>Phone Number</Table.HeaderCell>
+        <Table.HeaderCell>Title</Table.HeaderCell>
       </Table.Row>
     </Table.Header>
 
     <Table.Body>
       {
-        employers.map(employer =>(
-      <Table.Row key = {employer.id}>
-          <Table.Cell>{employer.id}</Table.Cell>
-          <Table.Cell><Link to={`/Employer/${employer.id}`}>{employer.mail}</Link></Table.Cell>
-          <Table.Cell>{employer.password}</Table.Cell>
-          <Table.Cell>{employer.company_name}</Table.Cell>
-          <Table.Cell>{employer.website}</Table.Cell>
-          <Table.Cell>{employer.phone_number}</Table.Cell>
+        jobs.map(job =>(
+      <Table.Row key = {job.id}>
+          <Table.Cell>{job.id}</Table.Cell>
+          <Table.Cell>{job.title}</Table.Cell>
       </Table.Row>
         ))
       }
@@ -43,7 +34,7 @@ export default function JobList() {
 
     <Table.Footer>
       <Table.Row>
-        <Table.HeaderCell colSpan='6'>
+        <Table.HeaderCell colSpan='2'>
           <Menu floated='right' pagination>
             <Menu.Item as='a' icon>
               <Icon name='chevron left' />

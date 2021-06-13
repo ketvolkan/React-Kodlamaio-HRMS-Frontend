@@ -1,26 +1,27 @@
 import React, { useState,useEffect } from 'react'
 import { useParams } from 'react-router'
 import { Card,Button } from 'semantic-ui-react'
-import EmployeeService from "../services/employeeService"
+import EmployerService from "../../services/employerService"
 
-export default function EmployeeDetail() {
+export default function EmployerDetail() {
     let {id} = useParams()
-    const [employees, setEmployees] = useState([]);
+    const [employers, setEmployers] = useState([]);
     
     useEffect(()=>{
-      let employeeService = new EmployeeService();
-      employeeService.getEmployeeById(id).then(result=>setEmployees(result.data.data))
+      let employerService = new EmployerService();
+      employerService.getEmployerById(id).then(result=>setEmployers(result.data.data))
     },[]); 
     return (
         <div>
           {
-        employees.map(employee =>(
+        employers.map(employer =>(
     <Card fluid color='red'>
       <Card.Content>
-        <Card.Header>{employee.first_name} {employee.last_name}</Card.Header>
-        <Card.Meta>{employee.mail}</Card.Meta>
+        <Card.Header>{employer.company_name}</Card.Header>
+        <Card.Meta>{employer.mail}</Card.Meta>
+        <Card.Meta>{employer.phone_number}</Card.Meta>
         <Card.Description>
-        {employee.nationality_id}
+        {employer.website}
         </Card.Description>
       </Card.Content>
       <Card.Content extra>

@@ -1,18 +1,19 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { Menu } from 'semantic-ui-react'
+import "./Categories.css"
 export default function Categories() {
     return (
-        <div>
+        <div className="categories">
         <Menu pointing vertical>
         <Menu.Item 
-          name='Employer List' as={NavLink} to="/Employer"
+          name='İş veren listesi' active as={NavLink} to="/List/Employer"
         />
         <Menu.Item
-          name='Employee List' as={NavLink} to="/Employee"
+          name='İş arayan listesi' as={NavLink} to="/List/Employee"
         />
         <Menu.Item
-          name='Job List' as={NavLink} to="/Job"
+          name='İş Türleri Listesi' as={NavLink} to="/List/Job"
         />
       </Menu>
         </div>

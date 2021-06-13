@@ -1,0 +1,43 @@
+.center{
+    margin-left: 35%;
+}
+.buton{
+    width: 100%;
+}
+.label{
+    font-weight: 500;
+    font-size: 14px;
+    margin-top: 15px;
+
+}
+.form{
+    border-top: rgb(194, 0, 0) solid 4px;
+    border-bottom: rgb(194, 0, 0) solid 4px;
+    background-color: whitesmoke;
+    color :rgb(194, 0, 0);
+    padding-top: 10px;
+    padding-bottom: 40px;
+    padding-left: 60px;
+    padding-right: 60px;
+    border-radius: 7%;
+}
+.form-control{
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 5px;
+}
+.small{
+    width: 20%;
+    margin-left: 40%;
+}
+.baslik{
+    color: rgb(194, 0, 0);
+}
+.yazi{
+float: left;
+color: rgb(194, 0, 0);
+}
+.aciklama{
+float: right;
+color: black;
+}

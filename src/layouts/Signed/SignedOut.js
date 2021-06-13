@@ -1,5 +1,5 @@
 import React from 'react'
-import "./Login.css"
+import "./SignedOut.css"
 import {Button,Icon} from 'semantic-ui-react'
 export default function LoginRegister(props) {
     return (

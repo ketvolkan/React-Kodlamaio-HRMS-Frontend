@@ -1,42 +1,40 @@
 import React, { useState,useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { Icon, Menu, Table } from 'semantic-ui-react'
-import EmployeeService from "../services/employeeService"
+import EmployerService from "../../services/employerService"
 
 
-export default function EmployeeList() {
-    const [employees, setEmployees] = useState([]);
+export default function JobList() {
+    const [employers, setEmployers] = useState([]);
     
     useEffect(()=>{
-      let employeeService = new EmployeeService();
-      employeeService.getEmployee().then(result=>setEmployees(result.data.data))
+      let employerService = new EmployerService();
+      employerService.getEmployer().then(result=>setEmployers(result.data.data))
     },[]); 
     return (
         <div>
-          <Table color="red" celled>
+          <Table color="red"  celled>
     <Table.Header>
       <Table.Row>
         <Table.HeaderCell>Id</Table.HeaderCell>
         <Table.HeaderCell>Email</Table.HeaderCell>
         <Table.HeaderCell>Password</Table.HeaderCell>
-        <Table.HeaderCell>First Name</Table.HeaderCell>
-        <Table.HeaderCell>Last Name</Table.HeaderCell>
-        <Table.HeaderCell>Nationality Id</Table.HeaderCell>
-        <Table.HeaderCell>Date Year</Table.HeaderCell>
+        <Table.HeaderCell>Company Name</Table.HeaderCell>
+        <Table.HeaderCell>Website</Table.HeaderCell>
+        <Table.HeaderCell>Phone Number</Table.HeaderCell>
       </Table.Row>
     </Table.Header>
 
     <Table.Body>
       {
-        employees.map(employee =>(
-      <Table.Row key = {employee.id}>
-          <Table.Cell>{employee.id}</Table.Cell>
-          <Table.Cell><Link to={`/Employee/${employee.id}`}>{employee.mail}</Link></Table.Cell>
-          <Table.Cell>{employee.password}</Table.Cell>
-          <Table.Cell>{employee.first_name}</Table.Cell>
-          <Table.Cell>{employee.last_name}</Table.Cell>
-          <Table.Cell>{employee.nationality_id}</Table.Cell>
-          <Table.Cell>{employee.date_year}</Table.Cell>
+        employers.map(employer =>(
+      <Table.Row key = {employer.id}>
+          <Table.Cell>{employer.id}</Table.Cell>
+          <Table.Cell><Link to={`/Employer/${employer.id}`}>{employer.mail}</Link></Table.Cell>
+          <Table.Cell>{employer.password}</Table.Cell>
+          <Table.Cell>{employer.company_name}</Table.Cell>
+          <Table.Cell>{employer.website}</Table.Cell>
+          <Table.Cell>{employer.phone_number}</Table.Cell>
       </Table.Row>
         ))
       }
@@ -45,7 +43,7 @@ export default function EmployeeList() {
 
     <Table.Footer>
       <Table.Row>
-        <Table.HeaderCell colSpan='7'>
+        <Table.HeaderCell colSpan='6'>
           <Menu floated='right' pagination>
             <Menu.Item as='a' icon>
               <Icon name='chevron left' />
